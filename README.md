@@ -12,7 +12,7 @@ This repository contains a multi-page website for Creator Autopilot AI with a lo
 
 ## Run locally
 
-1. Add your `GEMINI_API_KEY` to `.env` or `.env.example`
+1. Add your `GEMINI_API_KEY`
 3. Run `npm start`
 4. Open `http://localhost:3000`
 
