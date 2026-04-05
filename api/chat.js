@@ -16,10 +16,42 @@ function buildFallbackReply(message) {
   return "Gemini is unavailable right now, so here is a local fallback response: use the Features page for strategy, Opportunities for lead review and outreach, Workflow for delivery tracking, and Pricing for plan selection.";
 }
 
+// Simple rate limiting (in production, use Redis or similar)
+const requestCounts = new Map();
+const RATE_LIMIT = 10; // requests per minute
+const WINDOW_MS = 60 * 1000;
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const windowStart = now - WINDOW_MS;
+
+  if (!requestCounts.has(ip)) {
+    requestCounts.set(ip, []);
+  }
+
+  const requests = requestCounts.get(ip);
+  // Remove old requests
+  const validRequests = requests.filter(time => time > windowStart);
+  requestCounts.set(ip, validRequests);
+
+  if (validRequests.length >= RATE_LIMIT) {
+    return true;
+  }
+
+  validRequests.push(now);
+  return false;
+}
+
 export default async function handler(req, res) {
   // Only allow POST
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  const clientIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+
+  if (isRateLimited(clientIP)) {
+    return res.status(429).json({ error: "Too many requests. Please try again later." });
   }
 
   const { message } = req.body;
@@ -30,8 +62,9 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    return res.status(400).json({
-      error: "GEMINI_API_KEY is missing. Add it to .env.local and redeploy."
+    return res.status(200).json({
+      reply: buildFallbackReply(message),
+      fallback: true
     });
   }
 
