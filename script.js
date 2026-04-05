@@ -179,9 +179,13 @@ async function submitChat(message) {
 
     appendChatMessage("bot", data.reply);
     if (note) {
-      note.textContent = data.fallback
-        ? "Gemini is currently unavailable, so the assistant is replying with a local fallback."
-        : "Powered by Gemini through your local configuration.";
+      if (data.fallback && data.error) {
+        note.textContent = `Gemini error: ${data.error}`;
+      } else if (data.fallback) {
+        note.textContent = "Gemini is currently unavailable, so the assistant is replying with a local fallback.";
+      } else {
+        note.textContent = "Powered by Gemini through your local configuration.";
+      }
     }
   } catch (error) {
     appendChatMessage("bot", error.message);

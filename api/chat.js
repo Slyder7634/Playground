@@ -70,11 +70,17 @@ export default async function handler(req, res) {
       data.candidates[0].content.parts[0].text;
 
     if (!geminiResponse.ok || !reply) {
+      console.error("Gemini API error:", {
+        status: geminiResponse.status,
+        statusText: geminiResponse.statusText,
+        data: data
+      });
       throw new Error(data.error && data.error.message ? data.error.message : "Gemini request failed.");
     }
 
     return res.status(200).json({ reply });
   } catch (error) {
+    console.error("Chat handler error:", error.message);
     return res.status(200).json({
       reply: buildFallbackReply(message),
       fallback: true,
