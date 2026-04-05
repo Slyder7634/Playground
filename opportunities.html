@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creator Autopilot AI | Opportunities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="opportunities">
+    <div class="page-shell">
+      <nav class="topbar">
+        <a class="brand-link" href="index.html">
+          <div class="brand">
+            <span class="brand-mark">CA</span>
+            <div>
+              <p class="eyebrow">Creator Autopilot AI</p>
+              <p class="brand-subtitle">Growth, leads, outreach, delivery</p>
+            </div>
+          </div>
+        </a>
+        <div class="topbar-actions">
+          <a href="features.html" class="ghost-link nav-link">Features</a>
+          <a href="opportunities.html" class="ghost-link nav-link">Opportunities</a>
+          <a href="workflow.html" class="ghost-link nav-link">Workflow</a>
+          <a href="pricing.html" class="ghost-link nav-link">Pricing</a>
+          <a href="#inbox" class="primary-button">View inbox</a>
+        </div>
+      </nav>
+
+      <section class="page-banner">
+        <div class="page-intro">
+          <p class="section-kicker">Client intent detection</p>
+          <h1>Find high-intent clients before everyone else finds the same job post.</h1>
+          <p>
+            Creator Autopilot AI looks for demand signals, weak creative execution, launch behavior,
+            and business activity to prioritize the leads most likely to convert.
+          </p>
+        </div>
+        <div class="page-stats">
+          <article class="stat-card">
+            <strong>92</strong>
+            <span class="meta-copy">Top lead intent score in the current inbox</span>
+          </article>
+          <article class="stat-card">
+            <strong>3x</strong>
+            <span class="meta-copy">Cleaner targeting than passive marketplace browsing</span>
+          </article>
+          <article class="stat-card">
+            <strong>0</strong>
+            <span class="meta-copy">Unapproved messages sent by the system</span>
+          </article>
+          <article class="stat-card">
+            <strong>14d</strong>
+            <span class="meta-copy">Typical urgency window tracked for launch-driven opportunities</span>
+          </article>
+        </div>
+      </section>
+
+      <main>
+        <section class="content-section">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">How it works</p>
+              <h2>Opportunity scoring logic</h2>
+            </div>
+            <p class="section-description">
+              Leads are filtered through a relevance layer so users spend time on signals, not noise.
+            </p>
+          </div>
+
+          <div class="comparison-grid">
+            <article class="panel matrix-card">
+              <h3>Creative quality gaps</h3>
+              <p>Brands with spend or traction but visibly weak editing are strong service-fit targets.</p>
+            </article>
+            <article class="panel matrix-card">
+              <h3>Growth and launch momentum</h3>
+              <p>Autopilot favors accounts with product launches, hiring activity, or content acceleration.</p>
+            </article>
+            <article class="panel matrix-card">
+              <h3>Service likelihood</h3>
+              <p>Outreach is prioritized where there is evidence that creative support is actually needed.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="dashboard-section" id="inbox">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Interactive inbox</p>
+              <h2>Opportunity Inbox</h2>
+            </div>
+            <p class="section-description">
+              Click through leads to inspect rationale, review the suggested draft, and approve only
+              when the tone feels right.
+            </p>
+          </div>
+
+          <div class="dashboard-grid">
+            <aside class="left-rail panel">
+              <div class="panel-heading">
+                <p class="panel-label">Intent model</p>
+                <h3>Signal buckets</h3>
+              </div>
+              <div class="metric-list">
+                <div>
+                  <span>Launch activity</span>
+                  <strong>Product drops, campaign refreshes, content ramps</strong>
+                </div>
+                <div>
+                  <span>Creative weakness</span>
+                  <strong>Weak hooks, repetitive editing, stale visual pacing</strong>
+                </div>
+                <div>
+                  <span>Buyer behavior</span>
+                  <strong>Ad spend, hiring hints, founder visibility, business urgency</strong>
+                </div>
+              </div>
+
+              <div class="persona-card quote-card">
+                <p class="panel-label">System principle</p>
+                <blockquote>
+                  "The goal is not more leads. The goal is fewer, better-timed, more relevant leads."
+                </blockquote>
+                <p class="subtle-copy">Signal quality matters more than inbox volume.</p>
+              </div>
+            </aside>
+
+            <section class="center-stage">
+              <div class="panel inbox-panel">
+                <div class="panel-heading">
+                  <p class="panel-label">Live opportunities</p>
+                  <h3>Prioritized by intent</h3>
+                </div>
+                <div class="opportunity-list" id="opportunityList"></div>
+              </div>
+
+              <div class="panel story-card accent-panel">
+                <p class="panel-label">Filtering outcome</p>
+                <h3>Inbox stays separate from personal platforms</h3>
+                <p class="panel-copy">
+                  Professional opportunities are collected inside the product so creators can evaluate,
+                  approve, and organize leads without mixing work with personal messages.
+                </p>
+              </div>
+            </section>
+
+            <aside class="right-rail">
+              <div class="panel composer-panel">
+                <div class="panel-heading">
+                  <p class="panel-label">Approval flow</p>
+                  <h3>Suggested outreach</h3>
+                </div>
+                <div class="message-box" id="messageBox"></div>
+                <div class="composer-actions">
+                  <button class="secondary-button small-button" id="rewriteButton">Rewrite tone</button>
+                  <button class="primary-button small-button" id="approveButton">Approve draft</button>
+                </div>
+                <p class="approval-note" id="approvalNote">
+                  Waiting for your approval. Nothing has been sent.
+                </p>
+              </div>
+
+              <div class="panel story-card">
+                <p class="panel-label">Compliance</p>
+                <h3>Platform-safe outreach behavior</h3>
+                <p class="panel-copy">
+                  The system drafts and suggests. The user still decides when, where, and whether to send.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer panel">
+        <div>
+          <p class="panel-label">Explore next</p>
+          <h3>See how leads turn into organized client execution.</h3>
+        </div>
+        <div class="footer-links">
+          <a href="workflow.html">Workflow</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
