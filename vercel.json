@@ -2,6 +2,6 @@
   "buildCommand": "echo 'Static site, no build needed'",
   "outputDirectory": ".",
   "env": {
-    "GEMINI_API_KEY": "AIzaSyDQ6On99ipRGSyWQQ645KMorAJnJWlhCiA"
+    "GEMINI_API_KEY": "AIzaSyCLFz3AHEd6Ol-e00UOi8Qjxln9U0WDezs"
   }
 }
