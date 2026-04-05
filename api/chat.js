@@ -50,7 +50,7 @@ export default async function handler(req, res) {
               parts: [
                 {
                   text:
-                    "You are Creator Autopilot AI, an assistant for freelancers, editors, and creators. Keep answers concise, actionable, and product-aware.\n\nUser message: " +
+                    "You are Creator Autopilot AI, an assistant for freelancers, editors, and creators. Keep answers concise, actionable, and product-aware. Keep high energy and stay ambitious. USE LESS TOKENS.\n\nUser message: " +
                     message
                 }
               ]
